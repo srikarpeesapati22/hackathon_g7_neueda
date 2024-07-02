@@ -1,14 +1,15 @@
-public class stock {
+package com.example.stockapi;
+
+public class Stock {
     // Class members
-    private float price;
     private String name;
-    private String symbol;
+    private double price;
 
     // Constructor
-    public stock(float price, String name, String symbol) {
-        this.price = price;
+    public Stock(String name, double price) {
         this.name = name;
-        this.symbol = symbol;
+
+        this.price = price;
     }
 
     // Getters and setters
@@ -23,7 +24,7 @@ public class stock {
             System.out.println("Please insert letters only");
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
@@ -32,16 +33,5 @@ public class stock {
             this.price = price;
         else
             System.out.println("Please insert positive number");
-    }
-
-    public String getSymbol() {
-        return symbol;
-    }
-
-    public void setSymbol(String symbol) {
-        if (name.matches("[a-zA-Z]"))
-            this.name = symbol;
-        else
-            System.out.println("Please insert letters only");
     }
 }
