@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.1</version>
-		<relativePath/>
+		<version>2.5.4</version>
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>Group_7</artifactId>
+	<artifactId>stockapi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Group_7</name>
-	<description>Group 7 Hackathon Project</description>
+	<name>stockapi</name>
+	<description>Project to model how a general Stock API would work</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -65,14 +65,22 @@
 			<version>3.0.0</version>
 		</dependency>
 	</dependencies>
-
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>https://repo.maven.apache.org/maven2</url>
+		</repository>
+	</repositories>
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${project.parent.version}</version>
 			</plugin>
 		</plugins>
 	</build>
+
+
 
 </project>
