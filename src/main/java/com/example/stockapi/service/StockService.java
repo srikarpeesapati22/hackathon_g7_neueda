@@ -1,4 +1,4 @@
-package com.example.stockapi;
+package com.example.stockapi.service;
 
 import com.example.stockapi.model.Stock;
 import org.springframework.stereotype.Service;
