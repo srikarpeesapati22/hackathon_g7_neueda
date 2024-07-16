@@ -4,13 +4,15 @@ public class Stock {
     private String name;
     private double price;
 
+    // Constructors
+    public Stock() {}
+
     public Stock(String name, double price) {
         this.name = name;
         this.price = price;
     }
 
-    // Getters and setters
-
+    // Getters and Setters
     public String getName() {
         return name;
     }
