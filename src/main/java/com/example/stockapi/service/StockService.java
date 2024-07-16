@@ -3,33 +3,26 @@ package com.example.stockapi.service;
 import com.example.stockapi.model.Stock;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 @Service
 public class StockService {
-    private final List<Stock> stocks = new ArrayList<>();
 
-    public StockService() {
-        generateDummyData();
-    }
-
-    private void generateDummyData() {
-        String[] stockNames = {"AAPL", "GOOGL", "MSFT", "AMZN", "FB"};
-        Random random = new Random();
-
-        for (String name : stockNames) {
-            double price = 100 + (1000 - 100) * random.nextDouble();
-            stocks.add(new Stock(name, price));
-        }
-    }
+    private final List<Stock> stocks = List.of(
+            new Stock("AAPL", new Random().nextDouble() * 1000),
+            new Stock("GOOGL", new Random().nextDouble() * 1000),
+            new Stock("AMZN", new Random().nextDouble() * 1000)
+    );
 
     public List<Stock> getAllStocks() {
         return stocks;
     }
 
     public Stock getStockByName(String name) {
-        return stocks.stream().filter(stock -> stock.getName().equals(name)).findFirst().orElse(null);
+        return stocks.stream()
+                .filter(stock -> stock.getName().equalsIgnoreCase(name))
+                .findFirst()
+                .orElse(null);
     }
 }
