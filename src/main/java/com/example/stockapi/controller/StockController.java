@@ -1,37 +1,41 @@
 package com.example.stockapi.controller;
 
 import com.example.stockapi.model.Stock;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.stockapi.service.StockService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 @RestController
+@RequestMapping("/stocks")
 public class StockController {
-    private List<Stock> stocks = new ArrayList<>();
 
-    public StockController() {
-        // Generate some dummy data
-        Random random = new Random();
-        stocks.add(new Stock("Apple", random.nextDouble() * 1000));
-        stocks.add(new Stock("Google", random.nextDouble() * 1000));
-        stocks.add(new Stock("Amazon", random.nextDouble() * 1000));
-        stocks.add(new Stock("Microsoft", random.nextDouble() * 1000));
+    @Autowired
+    private StockService stockService;
+
+    @GetMapping
+    public List<Stock> getAllStocks() {
+        return stockService.getAllStocks();
     }
 
-    @GetMapping("/stocks")
-    public List<Stock> getStocks() {
-        return stocks;
+    @GetMapping("/{name}")
+    public Stock getStockByName(@PathVariable String name) {
+        return stockService.getStockByName(name);
     }
 
-    @GetMapping("/stocks/{name}")
-    public Stock getStock(@PathVariable String name) {
-        return stocks.stream()
-                .filter(stock -> stock.getName().equalsIgnoreCase(name))
-                .findFirst()
-                .orElse(null);
+    @PostMapping
+    public Stock addStock(@RequestBody Stock stock) {
+        return stockService.addStock(stock);
+    }
+
+    @PutMapping("/{name}")
+    public Stock updateStock(@PathVariable String name, @RequestBody Stock stock) {
+        return stockService.updateStock(name, stock);
+    }
+
+    @GetMapping("/search")
+    public List<Stock> searchStocks(@RequestParam String status) {
+        return stockService.searchStocks(status);
     }
 }
