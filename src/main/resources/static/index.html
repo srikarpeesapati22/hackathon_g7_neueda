@@ -33,27 +33,27 @@
     <div id="myDropdown" class="dropdown-content"> <div class="container">
     <button onclick="fetchStocks()">Get All Stocks</button>
     <button onclick="fetchStock()">Get Stock by Name</button>
-      <a href="#">Link 3</a>
+    <button onclick="addStock()">Add Stock</button>
+    <button onclick="updateStock()">Update Stock</button>
+    <button onclick="searchStocks()">Search Stocks</button>
     </div>
   </div>
 </div>
 
-<body>
-<div class="container">
-    <h2>Stock Information</h2>
-    <button onclick="fetchStocks()">Get All Stocks</button>
-    <button onclick="fetchStock()">Get Stock by Name</button>
-    <button onclick="addStock()">Add Stock</button>
-    <button onclick="updateStock()">Update Stock</button>
-    <button onclick="searchStocks()">Search Stocks</button>
-
-
-    <h2>Transaction Information</h2>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn"><h2>Transaction Information</h2></button>
+    <div id="myDropdown" class="dropdown-content"> <div class="container">
     <button onclick="fetchTransactions()">Get All Transactions</button>
     <button onclick="fetchTransactionsByStockName()">Get Transactions by Stock Name</button>
     <button onclick="addTransaction()">Add Transaction</button>
     <div id="output"></div>
+    </div>
+    </div>
 </div>
+
+
+<body>
+
 
 <script>
     function fetchStocks() {
