@@ -1,0 +1,18 @@
+h1 {
+    text-align: center;
+    vertical-align: top;
+    color: white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 45px;
+}
+
+header{
+    background-color: darkblue;
+    color:white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    text-align: center;
+}
+p {
+    color: white;
+    text-align: center;
+}
