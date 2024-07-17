@@ -11,6 +11,8 @@
         }
         .container {
             margin: 20px;
+            float: center;
+            width: 925px;
         }
         #output {
             margin-top: 20px;
@@ -28,32 +30,29 @@
 
 </header>
 
-<div class="dropdown">
-    <button onclick="myFunction()" class="dropbtn"><h2>Stock Information</h2></button>
-    <div id="myDropdown" class="dropdown-content"> <div class="container">
-    <button onclick="fetchStocks()">Get All Stocks</button>
-    <button onclick="fetchStock()">Get Stock by Name</button>
-    <button onclick="addStock()">Add Stock</button>
-    <button onclick="updateStock()">Update Stock</button>
-    <button onclick="searchStocks()">Search Stocks</button>
-    </div>
-  </div>
-</div>
+<h2> Stock Information </h2>
+    <div class="container">
+        <button onclick="fetchStocks()">Get All Stocks</button>
+        <button onclick="fetchStock()">Get Stock by Name</button>
+        <button onclick="addStock()">Add Stock</button>
+        <button onclick="updateStock()">Update Stock</button>
+        <button onclick="searchStocks()">Search Stocks</button>
+        </div>
 
-<div class="dropdown">
-    <button onclick="myFunction()" class="dropbtn"><h2>Transaction Information</h2></button>
-    <div id="myDropdown" class="dropdown-content"> <div class="container">
+
+
+<br> <br> <br> <br> <br> 
+
+<h2> Transaction Information</h2>
+    <div class="container">
     <button onclick="fetchTransactions()">Get All Transactions</button>
     <button onclick="fetchTransactionsByStockName()">Get Transactions by Stock Name</button>
     <button onclick="addTransaction()">Add Transaction</button>
-    <div id="output"></div>
     </div>
-    </div>
-</div>
-
-
+    
+    <br> <br> <br>
 <body>
-
+    
 
 <script>
     function fetchStocks() {
@@ -184,20 +183,15 @@
     function myFunction() {
         document.getElementById("myDropdown").classList.toggle("show");
       }
-      
-      // Close the dropdown menu if the user clicks outside of it
-      window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
-          var dropdowns = document.getElementsByClassName("dropdown-content");
-          var i;
-          for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-              openDropdown.classList.remove('show');
-            }
-          }
-        }
-      }
+
 </script>
+
 </body>
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
+<footer>
+    <p> This project was created by Aselka || Lukasz || Srikar || Andrew </p>
+  </div>
+
+</footer>
+
 </html>
