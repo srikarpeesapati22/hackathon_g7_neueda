@@ -32,7 +32,7 @@
     <button onclick="myFunction()" class="dropbtn"><h2>Stock Information</h2></button>
     <div id="myDropdown" class="dropdown-content"> <div class="container">
     <button onclick="fetchStocks()">Get All Stocks</button>
-      <a href="#">Link 2</a>
+    <button onclick="fetchStock()">Get Stock by Name</button>
       <a href="#">Link 3</a>
     </div>
   </div>
@@ -181,6 +181,23 @@
                 document.getElementById('output').innerHTML = JSON.stringify(data, null, 2);
             });
     }
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+      
+      // Close the dropdown menu if the user clicks outside of it
+      window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }
 </script>
 </body>
 </html>
